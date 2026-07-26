@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* position: relative; */
 }
 
 @theme inline {
@@ -14,7 +15,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+   
     --foreground: #ededed;
   }
 }
@@ -23,4 +24,136 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  align-items: center;
+}
+.mainImage{
+  position: relative;
+  height: 600px;
+  filter: brightness(60%);
+}
+.tagss{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.navbar {
+  width: 80%;
+  height: 60px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #434445;
+  padding: 15px 30px;
+  position: fixed;
+  top: 15px;
+  left: 110px;
+  z-index: 1000;
+}
+
+.navbar h2 {
+  color: rgb(219, 215, 215);
+}
+
+.tagss {
+  display: flex;
+  gap: 20px;
+}
+.tagss  :hover{
+  color: blue;
+}
+
+.tagss button {
+  padding: 10px 20px;
+  border: none;
+  background: transparent;
+  color: rgb(219, 215, 215);
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+.active {
+  background-color: #08aa3b;
+  color: rgb(209, 44, 44);
+  border-radius: 5px;
+}
+.YourNextAdventureAwaits{
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  color: white;
+  font-size: 300%;
+  font-weight: 600;
+  text-align: center;
+
+}
+.searchbar{
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  width: 20%;
+}
+.WeekendTrips{
+  color: #171717;
+  padding: 5% 5% 5% 6%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.WeekendTripsCards{
+  width: 200px;
+  height: 250px;
+  background-color: lightblue;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tenThousand{
+  color: black;
+  position: absolute;
+  left: 6%;
+  top: 630px;
+}
+.featuredHeading{
+  color: #171717;
+  position: absolute;
+  left: 6%;
+  top: 1280px;
+}
+.featuredDestiation{
+  padding: 5% 5% 5% 6%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.featuredDestinnationnsCards{
+   width: 300px;
+  height: 450px;
+  background-color: lightblue;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.stories{
+ color: #171717;
+ position: absolute;
+ left: 40%;
+ 
+}
+.storyMainCards{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  position: absolute;
+  top: 2450px;
+  left: 500px;
+}
+.storyCards{
+  width: 200px;
+  height: 300px;
+  background-color: aquamarine;
 }
