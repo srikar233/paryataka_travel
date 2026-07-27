@@ -3,7 +3,6 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  /* position: relative; */
 }
 
 @theme inline {
@@ -15,145 +14,471 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-   
     --foreground: #ededed;
   }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  align-items: center;
+  overflow-x: hidden;
 }
-.mainImage{
+
+
+
+.hero {
   position: relative;
-  height: 600px;
+  width: 100%;
+}
+
+.mainImage {
+  width: 100%;
+  height: 650px;
+  object-fit: cover;
   filter: brightness(60%);
 }
-.tagss{
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
+
+
+
 .navbar {
-  width: 80%;
-  height: 60px;
-  border-radius: 20px;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1250px;
+  height: 70px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #434445;
-  padding: 15px 30px;
-  position: fixed;
-  top: 15px;
-  left: 110px;
-  z-index: 1000;
+
+  padding: 0 30px;
+
+  background: rgba(48, 48, 48, 0.8);
+  backdrop-filter: blur(12px);
+
+  border-radius: 15px;
+
+  z-index: 100;
 }
 
 .navbar h2 {
-  color: rgb(219, 215, 215);
+  color: white;
 }
 
 .tagss {
   display: flex;
   gap: 20px;
 }
-.tagss  :hover{
-  color: blue;
-}
 
 .tagss button {
-  padding: 10px 20px;
-  border: none;
   background: transparent;
-  color: rgb(219, 215, 215);
+  border: none;
+  color: white;
   cursor: pointer;
   font-size: 16px;
-  transition: 0.3s;
+  transition: .3s;
 }
+
+.tagss button:hover {
+  color: #16a34a;
+}
+
 .active {
-  background-color: #08aa3b;
-  color: rgb(209, 44, 44);
-  border-radius: 5px;
+  color: #16a34a !important;
 }
-.YourNextAdventureAwaits{
+
+
+
+.YourNextAdventureAwaits {
   position: absolute;
-  top: 20%;
-  left: 35%;
+
+  top: 42%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
   color: white;
-  font-size: 300%;
-  font-weight: 600;
+
   text-align: center;
 
+  font-size: clamp(2.2rem,5vw,4.5rem);
+
+  font-weight: bold;
+
+  line-height: 1.2;
 }
+
+.searchbar {
+  position: absolute;
+
+  top: 15%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 700px;
+
+  display: flex;
+
+  background: white;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
+}
+
+.searchbar input {
+
+  flex: 1;
+
+  border: none;
+
+  outline: none;
+
+  padding: 18px;
+
+  font-size: 17px;
+}
+
+.searchbar button {
+
+  border: none;
+
+  padding: 0 35px;
+
+  background: #16a34a;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 16px;
+}
+
+
+
+.tenThousand,
+.featuredHeading,
+.stories {
+
+  width: 90%;
+
+  max-width: 1250px;
+
+  margin: 60px auto 25px;
+}
+
+.tenThousand h1,
+.featuredHeading,
+.stories h1 {
+
+  font-size: 38px;
+
+  color: #222;
+}
+
+.stories h4 {
+
+  color: gray;
+
+  margin-top: 10px;
+
+  font-weight: normal;
+}
+
+
+
+.WeekendTrips {
+
+  width: 90%;
+
+  max-width: 1250px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(4,1fr);
+
+  gap: 25px;
+
+  margin-bottom: 70px;
+}
+
+.WeekendTripsCards {
+
+  background: white;
+
+  border-radius: 15px;
+
+  height: 260px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  font-size: 22px;
+
+  box-shadow: 0 10px 20px rgba(0,0,0,.1);
+
+  transition: .3s;
+}
+
+.WeekendTripsCards:hover {
+
+  transform: translateY(-10px);
+
+  cursor: pointer;
+}
+
+
+.featuredDestiation {
+
+  width: 90%;
+
+  max-width: 1250px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(3,1fr);
+
+  gap: 25px;
+
+  margin-bottom: 70px;
+}
+
+.featuredDestinnationnsCards {
+
+  background: white;
+
+  height: 420px;
+
+  border-radius: 18px;
+
+  /* display: flex;
+
+  justify-content: center;
+
+  align-items: center; */
+
+  font-size: 24px;
+
+  box-shadow: 0 10px 20px rgba(0,0,0,.1);
+
+  transition: .3s;
+}
+
+.featuredDestinnationnsCards:hover {
+
+  transform: translateY(-10px);
+}
+.featuredImage{
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.storyMainCards {
+
+  width: 90%;
+
+  max-width: 1250px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(3,1fr);
+
+  gap: 25px;
+
+  padding-bottom: 80px;
+}
+
+.storyCards {
+
+  background: white;
+
+  height: 320px;
+
+  border-radius: 15px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  font-size: 22px;
+
+  box-shadow: 0 10px 20px rgba(0,0,0,.1);
+
+  transition: .3s;
+}
+
+.storyCards:hover {
+
+  transform: translateY(-10px);
+}
+
+
+
+@media(max-width:992px){
+
+.navbar{
+
+flex-direction:column;
+
+height:auto;
+
+padding:20px;
+
+gap:15px;
+
+}
+
+.tagss{
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
 .searchbar{
-  position: absolute;
-  top: 50%;
-  left: 40%;
-  width: 20%;
+
+width:90%;
+
 }
+
 .WeekendTrips{
-  color: #171717;
-  padding: 5% 5% 5% 6%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+
+grid-template-columns:repeat(2,1fr);
+
 }
-.WeekendTripsCards{
-  width: 200px;
-  height: 250px;
-  background-color: lightblue;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.tenThousand{
-  color: black;
-  position: absolute;
-  left: 6%;
-  top: 630px;
-}
-.featuredHeading{
-  color: #171717;
-  position: absolute;
-  left: 6%;
-  top: 1280px;
-}
+
 .featuredDestiation{
-  padding: 5% 5% 5% 6%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+
+grid-template-columns:repeat(2,1fr);
+
 }
-.featuredDestinnationnsCards{
-   width: 300px;
-  height: 450px;
-  background-color: lightblue;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.stories{
- color: #171717;
- position: absolute;
- left: 40%;
- 
-}
+
 .storyMainCards{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  position: absolute;
-  top: 2450px;
-  left: 500px;
+
+grid-template-columns:repeat(2,1fr);
+
 }
-.storyCards{
-  width: 200px;
-  height: 300px;
-  background-color: aquamarine;
+
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.mainImage{
+
+height:550px;
+
+}
+
+.YourNextAdventureAwaits{
+
+font-size:40px;
+
+width:90%;
+
+}
+
+.searchbar{
+
+width:92%;
+
+flex-direction:column;
+
+}
+
+.searchbar input{
+
+width:100%;
+
+}
+
+.searchbar button{
+
+padding:15px;
+
+}
+
+.WeekendTrips{
+
+grid-template-columns:1fr;
+
+}
+
+.featuredDestiation{
+
+grid-template-columns:1fr;
+
+}
+
+.storyMainCards{
+
+grid-template-columns:1fr;
+
+}
+
+.tenThousand h1,
+.featuredHeading,
+.stories h1{
+
+font-size:30px;
+
+}
+
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media(max-width:480px){
+
+.navbar{
+
+width:95%;
+
+}
+
+.tagss{
+
+gap:10px;
+
+}
+
+.tagss button{
+
+font-size:14px;
+
+}
+
+.YourNextAdventureAwaits{
+
+font-size:32px;
+
+}
+
 }
