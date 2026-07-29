@@ -1,6 +1,7 @@
-export default function weekendTrips()
+export default function weekendTrips({products})
 {
     const card=[1,2,3,4,5,6,7,8,9,10,11,12];
+    console.log(products)
     return(
         <>
 
@@ -8,9 +9,13 @@ export default function weekendTrips()
              
             <div className="WeekendTrips">
                
-                {card.map((cards)=>{
-                    return(  <div className="WeekendTripsCards" key={cards}>
-                        cards {cards}
+                {products.map((items)=>{
+                    return(  <div className="WeekendTripsCards" key={items._id}>
+                        <img
+              src={items.thumbnailImage}
+              alt={items.name}
+              className="featuredImage"
+            />
                     </div>)
                 })}
             </div>

@@ -101,7 +101,7 @@ body {
 .YourNextAdventureAwaits {
   position: absolute;
 
-  top: 42%;
+  top: 10%;
   left: 50%;
 
   transform: translate(-50%, -50%);
@@ -214,6 +214,7 @@ body {
   gap: 25px;
 
   margin-bottom: 70px;
+  border-radius: 10px;
 }
 
 .WeekendTripsCards {
@@ -235,6 +236,8 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,.1);
 
   transition: .3s;
+
+  border-radius: 10px;
 }
 
 .WeekendTripsCards:hover {
@@ -263,10 +266,11 @@ body {
 }
 
 .featuredDestinnationnsCards {
+  position: relative;
 
   background: white;
 
-  height: 420px;
+  height: 220px;
 
   border-radius: 18px;
 
@@ -282,7 +286,10 @@ body {
 
   transition: .3s;
 }
-
+.featuredContent{
+  position: absolute;
+  z-index: 1;
+}
 .featuredDestinnationnsCards:hover {
 
   transform: translateY(-10px);
@@ -481,4 +488,10 @@ font-size:32px;
 
 }
 
+}
+.firstpart{
+  width: 100%;
+  height: 400px;
+  background-color: #171717
+  ;
 }

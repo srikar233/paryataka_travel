@@ -22,7 +22,7 @@ export default async function Home() {
           alt="Paryataka"
         />
 
-        <Navbar />
+        {/* <Navbar /> */}
 
         <div className="YourNextAdventureAwaits">
           Your Next Adventure <br />

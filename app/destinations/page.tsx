@@ -1,8 +1,10 @@
 export default function destination()
 {
     return(
-        <div>
-            destination
+        <>
+        <div className="firstpart">
+            srikar
         </div>
+        </>
     )
 }

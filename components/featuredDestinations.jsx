@@ -18,13 +18,13 @@ export default function FeaturedDestinations({ products }) {
             />
 
             <div className="featuredContent">
-              <h2>{item.name}</h2>
+              {/* <h2>{item.name}</h2>
 
               <p>📍 {item.location}</p>
 
               <h3>₹ {item.basePrice}</h3>
 
-              <button>View Details</button>
+              <button>View Details</button> */}
             </div>
           </div>
         ))}

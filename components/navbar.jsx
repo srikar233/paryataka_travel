@@ -2,6 +2,7 @@
 
 import { useRouter, usePathname } from "next/navigation";
 import "../app/globals.css";
+import { FaAngleDown } from "react-icons/fa";
 
 
 export default function Navbar() {
@@ -23,7 +24,7 @@ export default function Navbar() {
         </button>
         <button onClick={()=>router.push("/destinations")
         }
-        className={pathname === "/destinations" ? "active" : ""}>Destinations</button>
+        className={pathname === "/destinations" ? "active" : ""} style={{display: "flex", alignItems: 'center'}}>Destinations <FaAngleDown /></button>
 
         <button
           onClick={() => router.push("/blogs")}
