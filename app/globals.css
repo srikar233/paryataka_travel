@@ -490,8 +490,51 @@ font-size:32px;
 
 }
 .firstpart{
+  position: relative;
   width: 100%;
   height: 400px;
-  background-color: #171717
+  background-color: #E0EDFF
   ;
+}
+.secondpart{
+  width: 100%;
+  height: 100%;
+  background-color: #DFF2FF;
+}
+.searchbardestination{
+    position: absolute;
+    left: 9%;
+    top: 30%;
+    width: 85%;
+    height: 70%;
+    background-color: #F6F8FF;
+    border-radius: 20px;
+}
+.searchbardestination{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchinputdestination{
+  width: 50%;
+}
+.destination-card {
+  height: 450px;
+  width: 350px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.destination-card:hover {
+  transform: translateY(-6px);
+}
+.footer{
+  width: 100%;
+  height: 350px;
+  background-color: #0357A2;
 }
