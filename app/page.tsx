@@ -35,7 +35,7 @@ export default async function Home() {
         <WeekendTrips products={data.data.weekendTripsUnder10k} />
 
         <FeaturedDestination
-          products={data.data.featuredDestinations}
+          featureData={data.data.featuredDestinations}
         />
 
         <Stories />

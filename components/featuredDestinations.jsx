@@ -1,12 +1,16 @@
 "use client";
 
-export default function FeaturedDestinations({ products }) {
+import { useRouter } from "next/navigation";
+
+export default function FeaturedDestinations({ featureData }) {
+  const router = useRouter();
+
   return (
     <>
       <h1 className="featuredHeading">Featured Destinations</h1>
 
       <div className="featuredDestiation">
-        {products.map((item) => (
+        {featureData.map((item) => (
           <div
             key={item._id}
             className="featuredDestinnationnsCards"
@@ -18,13 +22,13 @@ export default function FeaturedDestinations({ products }) {
             />
 
             <div className="featuredContent">
-              {/* <h2>{item.name}</h2>
-
+              <h2>{item.name}</h2>
               <p>📍 {item.location}</p>
-
               <h3>₹ {item.basePrice}</h3>
 
-              <button>View Details</button> */}
+              <button onClick={() => router.push("/tripDetails")}>
+                Explore Now
+              </button>
             </div>
           </div>
         ))}
