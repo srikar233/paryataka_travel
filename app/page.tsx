@@ -11,8 +11,12 @@ export default async function Home() {
     cache: "no-store",
   });
 
+  
+
 
   const data = await res.json();
+
+  
 
   return (
     <>

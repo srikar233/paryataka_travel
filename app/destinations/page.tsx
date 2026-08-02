@@ -7,7 +7,7 @@ export default async function Destination() {
 
   const actualdata=data1.data.items;
 
-  console.log(data1)
+  
   return (
     <>
       <div>

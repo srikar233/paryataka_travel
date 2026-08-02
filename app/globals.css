@@ -25,24 +25,30 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #f7f9fc;
+  color: #111827;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
-
-
 
 .hero {
   position: relative;
   width: 100%;
+  overflow: hidden;
+  
 }
 
 .mainImage {
   width: 100%;
-  height: 650px;
+  height: min(72vh, 650px);
   object-fit: cover;
   filter: brightness(60%);
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.hero:hover .mainImage {
+  transform: scale(1.02);
+  filter: brightness(50%);
 }
 
 
@@ -101,7 +107,7 @@ body {
 .YourNextAdventureAwaits {
   position: absolute;
 
-  top: 10%;
+  top: 8%;
   left: 50%;
 
   transform: translate(-50%, -50%);
@@ -120,7 +126,7 @@ body {
 .searchbar {
   position: absolute;
 
-  top: 15%;
+  top: 13%;
   left: 50%;
 
   transform: translateX(-50%);
@@ -171,135 +177,122 @@ body {
 .tenThousand,
 .featuredHeading,
 .stories {
-
-  width: 90%;
-
-  max-width: 1250px;
-
-  margin: 60px auto 25px;
+  width: min(90%, 1250px);
+  margin: 72px auto 24px;
 }
 
 .tenThousand h1,
 .featuredHeading,
 .stories h1 {
-
-  font-size: 38px;
-
-  color: #222;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: #1f2937;
+  font-weight: 800;
 }
 
 .stories h4 {
-
-  color: gray;
-
+  color: #6b7280;
   margin-top: 10px;
-
-  font-weight: normal;
+  font-weight: 500;
 }
-
-
 
 .WeekendTrips {
-
-  width: 90%;
-
-  max-width: 1250px;
-
-  margin: auto;
-
+  width: min(90%, 1250px);
+  margin: 0 auto 70px;
   display: grid;
-
-  grid-template-columns: repeat(4,1fr);
-
-  gap: 25px;
-
-  margin-bottom: 70px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 26px;
+  align-items: stretch;
   border-radius: 10px;
 }
-
-.WeekendTripsCards {
-
-  background: white;
-
-  border-radius: 15px;
-
-  height: 260px;
-
-  display: flex;
-
-  justify-content: center;
-
-  /* align-items: center; */
-
-  font-size: 22px;
-
-  box-shadow: 0 10px 20px rgba(0,0,0,.1);
-
-  transition: .3s;
-
-  border-radius: 10px;
+.tripOverview{
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 36px;
+  color: #4B5563;
+  margin-top: 24px;
+  max-width: 900px;
 }
+.tripTrecks{
+   padding: 50px 50px 50px 100px;
+   font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1E293B;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
 
-.WeekendTripsCards:hover {
-
-  transform: translateY(-10px);
-
-  cursor: pointer;
 }
-
 
 .featuredDestiation {
-
-  width: 90%;
-
-  max-width: 1250px;
-
-  margin: auto;
-
+  width: min(90%, 1250px);
+  margin: 0 auto 70px;
   display: grid;
-
-  grid-template-columns: repeat(3,1fr);
-
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 25px;
-
-  margin-bottom: 70px;
 }
 
 .featuredDestinnationnsCards {
   position: relative;
-
   background: white;
-
   height: 320px;
-
   border-radius: 18px;
-
-  /* display: flex;
-
-  justify-content: center;
-
-  align-items: center; */
-
+  overflow: hidden;
   font-size: 24px;
-
-  box-shadow: 0 10px 20px rgba(0,0,0,.1);
-
-  transition: .3s;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  transition: 0.3s ease;
 }
-.featuredContent{
+
+.featuredDestinnationnsCards::before {
+  content: "";
   position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.22), transparent);
   z-index: 1;
-  color: #171717;
-  font-size: small;
 }
-.featuredDestinnationnsCards:hover {
 
+.featuredContent {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.featuredContent h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.featuredContent p,
+.featuredContent h3 {
+  margin: 0;
+}
+
+.featuredContent button {
+  width: fit-content;
+  margin-top: 8px;
+  padding: 10px 16px;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.featuredContent button:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.featuredDestinnationnsCards:hover {
   transform: translateY(-10px);
 }
-.featuredImage{
-  width: 100%;
-  height: 40%;
-}
+
 .tripDetails{
   color: #171717;
 }
@@ -309,8 +302,14 @@ body {
   background-color: #171717;
 }
 .aboutTripHeadings{
-  padding: 20px 0px 20px 0px;
+  padding: 20px 20px 20px 20px;
 
+}
+.description{
+  width: 800px;
+  height: 80px;
+  background-color: #EFF6FF;  
+  padding: 20px 20px 20px 20px;
 }
 .destinationTrippage{
   display: flex;
@@ -338,45 +337,27 @@ body {
   font-family: "Inter", sans-serif;
 }
 .storyMainCards {
-
-  width: 90%;
-
-  max-width: 1250px;
-
-  margin: auto;
-
+  width: min(90%, 1250px);
+  margin: 0 auto;
   display: grid;
-
-  grid-template-columns: repeat(3,1fr);
-
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 25px;
-
   padding-bottom: 80px;
 }
 
 .storyCards {
-
   background: white;
-
   height: 320px;
-
   border-radius: 15px;
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   font-size: 22px;
-
-  box-shadow: 0 10px 20px rgba(0,0,0,.1);
-
-  transition: .3s;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
 }
 
 .storyCards:hover {
-
   transform: translateY(-10px);
 }
 
@@ -573,4 +554,81 @@ font-size:32px;
   width: 100%;
   height: 350px;
   background-color: #0357A2;
+}
+.weekendTripsCards {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.featuredImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(72%);
+}
+
+.weekendTripsCards::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.26), transparent);
+  z-index: 1;
+}
+
+.cardContent {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2;
+  color: white;
+}
+
+.cardContent h2 {
+  margin: 0 0 16px;
+  font-size: 1.55rem;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.priceSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+.priceSection p {
+  margin: 0;
+  color: #e5e7eb;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+.priceSection h3 {
+  margin: 4px 0 0;
+  color: #f59e0b;
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+.priceSection button {
+  padding: 8px 14px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+.priceSection button:hover {
+  background: rgba(255, 255, 255, 0.12);
 }
