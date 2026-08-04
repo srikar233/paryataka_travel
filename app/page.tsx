@@ -8,11 +8,8 @@ import Stories from "../components/stories";
 
 export default async function Home() {
   const res = await fetch("https://paryataka-be.onrender.com/api/home", {
-    cache: "no-store",
+    next: { revalidate: 60 },
   });
-
-  
-
 
   const data = await res.json();
 

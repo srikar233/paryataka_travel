@@ -19,6 +19,8 @@ export default function FeaturedDestinations({ featureData }) {
               src={item.thumbnailImage}
               alt={item.name}
               className="featuredImage"
+              loading="lazy"
+              decoding="async"
             />
 
             <div className="featuredContent">

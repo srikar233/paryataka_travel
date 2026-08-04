@@ -18,6 +18,8 @@ export default function WeekendTrips({ products }) {
               src={item.thumbnailImage}
               alt={item.name}
               className="featuredImage"
+              loading="lazy"
+              decoding="async"
             />
 
             <div className="cardContent">
