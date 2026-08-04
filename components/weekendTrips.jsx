@@ -30,7 +30,7 @@ export default function WeekendTrips({ products }) {
                 </div>
 
                 <button
-                  onClick={() => router.push(`/tripDetails`)}
+                  onClick={() => router.push(`/tripDetails/${item.slug || item._id}`)}
                 >
                   EXPLORE NOW
                 </button>

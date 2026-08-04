@@ -26,7 +26,7 @@ export default function FeaturedDestinations({ featureData }) {
               <p>📍 {item.location}</p>
               <h3>₹ {item.basePrice}</h3>
 
-              <button onClick={() => router.push("/tripDetails")}>
+              <button onClick={() => router.push(`/tripDetails/${item.slug || item._id}`)}>
                 Explore Now
               </button>
             </div>

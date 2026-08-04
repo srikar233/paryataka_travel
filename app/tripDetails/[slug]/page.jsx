@@ -1,13 +1,19 @@
 
-export default async function TripDetails() {
-    const data=await fetch('https://paryataka-be.onrender.com/api/packages/public/tadiandamol-summit-adventure')
-    const tripData=await data.json();
-    console.log(tripData)
+export default async function TripDetails({ params }) {
+  const { slug } = await params;
+
+  const response = await fetch(
+    `https://paryataka-be.onrender.com/api/packages/public/${slug}`,
+    { cache: "no-store" }
+  );
+  const tripData = await response.json();
+  const trip = tripData?.data;
+
   return (
     <>
       <div className="tripDetails">
         <div className="imageTripsDrips">
-          srikar
+          <img src={trip?.thumbnailImage} alt={trip?.name} className="tripDetailsImage" />
         </div>
 
         <div className="destinationTrippage">
@@ -24,20 +30,20 @@ export default async function TripDetails() {
               <div className="aboutTripHeading">
                 <h2>About this trip</h2>
                 <div className="tripOverview">
-                  <p>{tripData?.data?.overview}</p>
+                  <p>{trip?.overview}</p>
                 </div>
               </div>
 
               <div className="description">
                 <h1 className="tripTrecks">About Treks</h1>
-                <p>{tripData?.data?.categoryId?.description}</p>
+                <p>{trip?.categoryId?.description}</p>
               </div>
 
               <div className="highlights">
                 <h1>Highlights</h1>
 
                 <div className="highlightBadges">
-                  {tripData?.data?.highlights?.map((highlight, index) => (
+                  {trip?.highlights?.map((highlight, index) => (
                     <div key={index} className="highlightPill">
                       <span className="badgeIcon">✦</span>
                       <span>{highlight}</span>
@@ -91,7 +97,7 @@ export default async function TripDetails() {
               </div>
               <div className="itinerarySection">
                 <h1>Itinerary</h1>
-                {tripData?.data?.itinerary?.map((day, index) => (
+                {trip?.itinerary?.map((day, index) => (
                   <div key={index} className="itineraryCard">
                     <div className="itineraryDay">DAY {day.day}</div>
                     <div className="itineraryDescription">
@@ -108,7 +114,7 @@ export default async function TripDetails() {
                     <h2>What&apos;s Included</h2>
                   </div>
                   <div className="amenitiesList">
-                    {tripData?.data?.inclusions?.map((amenity, index) => (
+                    {trip?.inclusions?.map((amenity, index) => (
                       <div key={index} className="amenityItem">
                         <span className="panelCheck">✓</span>
                         <span>{amenity}</span>
@@ -123,7 +129,7 @@ export default async function TripDetails() {
                     <h2>Not Included</h2>
                   </div>
                   <div className="notIncludedList">
-                    {tripData?.data?.exclusions?.map((notIncluded, index) => (
+                    {trip?.exclusions?.map((notIncluded, index) => (
                       <div key={index} className="notIncludedItem">
                         <span className="panelCross">×</span>
                         <span>{notIncluded}</span>
@@ -148,20 +154,31 @@ export default async function TripDetails() {
               <div className="safetyGuidelinesSection">
                 <h2>Safety Guidelines</h2>
                 <div className="safetyGuidelinesList">
-                  <div className="safetyGuidelineItem">
-                    
-                    {tripData?.data?.safetyGuidance?.map((guideline, index) => (
-                      <p key={index}>⚠️ {guideline}</p>
-                    ))}
-                  </div>
+                  {trip?.safetyGuidance?.map((guideline, index) => (
+                    <div key={index} className="safetyGuidelineItem">
+                      <span className="safetyGuidelineIcon">△</span>
+                      <span>{guideline}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div>
-                <div className="reachSection">
-                  <h2>How to Reach</h2>
-                  {tripData?.data?.howToReach?.map((reach, index) => (
-                    <p key={index}>⚠️ {reach}</p>
+              <div className="reachSection">
+                <h2>How to Reach</h2>
+                <div className="reachList">
+                  {trip?.howToReach?.map((reach, index) => (
+                    <div key={index} className="reachItem">
+                      <span className="reachIcon">◎</span>
+                      <span>{reach}</span>
+                    </div>
                   ))}
+                </div>
+                <div className="customOptionsSection">
+                  <div><h1>Custom Options</h1></div>
+                  <div className="accommodationType">
+                    <h1>Accommodation Type</h1>
+
+                  </div>
+
                 </div>
               </div>
             </div>
