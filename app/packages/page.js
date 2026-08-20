@@ -5,8 +5,10 @@ export default async function Packages() {
   const data = await res.json();
 
   return (
+    <>
     <FeaturedDestinations
       products={data.data.weekendTripsUnder10k}
     />
+    </>
   );
 }

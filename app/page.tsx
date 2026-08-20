@@ -1,6 +1,5 @@
 import Image from "next/image";
 import paryataka from "../public/paryataka.jpg";
-import Navbar from "@/components/navbar";
 import SearchBar from "../components/search";
 import WeekendTrips from "../components/weekendTrips";
 import FeaturedDestination from "../components/featuredDestinations";
@@ -12,8 +11,6 @@ export default async function Home() {
   });
 
   const data = await res.json();
- 
-  
 
   return (
     <>
@@ -24,16 +21,18 @@ export default async function Home() {
           alt="Paryataka"
         />
 
-        {/* <Navbar /> */}
-
         <div className="YourNextAdventureAwaits">
           Your Next Adventure <br />
           Awaits
         </div>
 
-        <SearchBar />
+        <SearchBar
+          searchData={data.data.weekendTripsUnder10k}
+        />
 
-        <WeekendTrips products={data.data.weekendTripsUnder10k} />
+        <WeekendTrips
+          products={data.data.weekendTripsUnder10k}
+        />
 
         <FeaturedDestination
           featureData={data.data.featuredDestinations}
