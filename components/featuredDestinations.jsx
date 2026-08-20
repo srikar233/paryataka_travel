@@ -25,12 +25,17 @@ export default function FeaturedDestinations({ featureData }) {
 
             <div className="featuredContent">
               <h2>{item.name}</h2>
-              <p>📍 {item.location}</p>
-              <h3>₹ {item.basePrice}</h3>
 
-              <button onClick={() => router.push(`/tripDetails/${item.slug || item._id}`)}>
-                Explore Now
-              </button>
+              <div className="priceSection">
+                <div className="priceInfo">
+                  <p>📍 {item.location}</p>
+                  <h3>₹ {item.basePrice}</h3>
+                </div>
+
+                <button onClick={() => router.push(`/tripDetails/${item.slug || item._id}`)}>
+                  EXPLORE NOW
+                </button>
+              </div>
             </div>
           </div>
         ))}

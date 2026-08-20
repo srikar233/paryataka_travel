@@ -1,3 +1,4 @@
+import BookingCard from "../../../components/BookingCard";
 
 export default async function TripDetails({ params }) {
   const { slug } = await params;
@@ -14,6 +15,8 @@ export default async function TripDetails({ params }) {
       <div className="tripDetails">
         <div className="imageTripsDrips">
           <img src={trip?.thumbnailImage} alt={trip?.name} className="tripDetailsImage" />
+          <div className="name">{trip?.name}</div>
+          
         </div>
 
         <div className="destinationTrippage">
@@ -175,8 +178,7 @@ export default async function TripDetails({ params }) {
                 <div className="customOptionsSection">
                   <div><h1>Custom Options</h1></div>
                   <div className="accommodationType">
-                    <h1>Accommodation Type</h1>
-
+                    
                   </div>
 
                 </div>
@@ -184,7 +186,9 @@ export default async function TripDetails({ params }) {
             </div>
           </div>
 
-          <div>payment</div>
+          <aside className="paymentSidebar">
+            <BookingCard trip={trip} />
+          </aside>
         </div>
       </div>
     </>

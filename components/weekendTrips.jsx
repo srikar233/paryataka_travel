@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 
 export default function WeekendTrips({ products }) {
   const router = useRouter();
+  
 
   return (
     <>
