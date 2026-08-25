@@ -4,7 +4,7 @@ import SearchBar from "../components/search";
 import WeekendTrips from "../components/weekendTrips";
 import FeaturedDestination from "../components/featuredDestinations";
 import Stories from "../components/stories";
-
+import Footer from "@/components/footer";
 export default async function Home() {
   const res = await fetch("https://paryataka-be.onrender.com/api/home", {
     next: { revalidate: 60 },
@@ -39,6 +39,8 @@ export default async function Home() {
         />
 
         <Stories />
+        <div><Footer /></div>
+        
       </div>
     </>
   );
