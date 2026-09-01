@@ -1,4 +1,4 @@
-import FeaturedDestinations from "../../components/featuredDestinations";
+import FeaturedDestinations from "@/components/features/FeaturedDestinations";
 
 export default async function Packages() {
   const res = await fetch("https://paryataka-be.onrender.com/api/home");

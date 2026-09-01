@@ -1,8 +1,11 @@
-import Footer from "@/components/footer";
+import Footer from "@/components/layout/Footer";
 import { MapPin, Clock } from "lucide-react";
-import BookButton from "@/components/BookButton";
+import BookButton from "@/components/common/BookButton";
+
 
 export default async function Destinations() {
+
+
   const res = await fetch(
     "https://paryataka-be.onrender.com/api/packages/public",
     {

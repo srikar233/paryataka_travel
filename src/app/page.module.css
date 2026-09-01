@@ -1,0 +1,274 @@
+/* Home Page Styles */
+
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.mainImage {
+  width: 100%;
+  height: min(72vh, 650px);
+  object-fit: cover;
+  filter: brightness(60%);
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.hero:hover .mainImage {
+  transform: scale(1.02);
+  filter: brightness(50%);
+}
+
+/* ================= HOME HERO TEXT ================= */
+
+.YourNextAdventureAwaits {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+/* ================= HOME SEARCH ================= */
+
+.searchbar {
+  position: absolute;
+  top: 13%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 700px;
+
+  display: flex;
+
+  background: white;
+  border-radius: 12px;
+
+  overflow: visible;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+  z-index: 50;
+}
+
+.searchbar input {
+  flex: 1;
+
+  border: none;
+  outline: none;
+
+  padding: 18px;
+
+  font-size: 17px;
+
+  min-width: 0;
+
+  border-radius: 12px 0 0 12px;
+}
+
+.searchbar button {
+  border: none;
+
+  padding: 0 35px;
+
+  background: #16a34a;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  border-radius: 0 12px 12px 0;
+
+  flex-shrink: 0;
+}
+
+/* ================= SEARCH RESULTS ================= */
+
+.searchResults {
+  position: absolute;
+
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+
+  width: 100%;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 12px;
+
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
+
+  max-height: 400px;
+
+  overflow-y: auto;
+
+  z-index: 100;
+}
+
+/* Individual result */
+
+.searchResultItem {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+
+  padding: 14px 18px;
+
+  border-bottom: 1px solid #eef2f7;
+
+  cursor: pointer;
+
+  background: #ffffff;
+
+  transition: background 0.2s ease;
+}
+
+.searchResultItem:last-child {
+  border-bottom: none;
+}
+
+.searchResultItem:hover {
+  background: #f8fafc;
+}
+
+.searchResultItem h3 {
+  margin: 0;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  color: #1e293b;
+}
+
+.searchResultItem p {
+  margin: 0;
+
+  font-size: 13px;
+
+  color: #64748b;
+}
+
+/* No results */
+
+.searchResults > p {
+  margin: 0;
+
+  padding: 20px;
+
+  text-align: center;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+/* Scrollbar */
+
+.searchResults::-webkit-scrollbar {
+  width: 6px;
+}
+
+.searchResults::-webkit-scrollbar-track {
+  background: #f8fafc;
+  border-radius: 10px;
+}
+
+.searchResults::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+  .searchbar {
+    width: 90%;
+  }
+}
+
+/* ================= MOBILE 768px ================= */
+
+@media (max-width: 768px) {
+  .mainImage {
+    height: 550px;
+  }
+
+  .YourNextAdventureAwaits {
+    font-size: 40px;
+    width: 90%;
+  }
+
+  /* Home search */
+
+  .searchbar {
+    width: 92%;
+    flex-direction: column;
+    border-radius: 12px;
+  }
+
+  .searchbar input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .searchbar button {
+    width: 100%;
+    min-height: 50px;
+    padding: 15px;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .searchResults {
+    top: calc(100% + 8px);
+    max-height: 300px;
+    border-radius: 12px;
+  }
+}
+
+/* ================= SMALL MOBILE 480px ================= */
+
+@media (max-width: 480px) {
+  .YourNextAdventureAwaits {
+    font-size: 32px;
+  }
+
+  /* Home search */
+
+  .searchbar {
+    width: 94%;
+  }
+
+  .searchbar input {
+    font-size: 15px;
+    padding: 14px;
+  }
+
+  .searchbar button {
+    font-size: 15px;
+    min-height: 48px;
+  }
+
+  .searchResultItem {
+    padding: 12px 14px;
+  }
+
+  .searchResultItem h3 {
+    font-size: 14px;
+  }
+
+  .searchResultItem p {
+    font-size: 12px;
+  }
+}

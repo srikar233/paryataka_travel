@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import styles from './WeekendTrips.module.css';
 
 export default function WeekendTrips({ products }) {
   const router = useRouter();
@@ -8,26 +9,26 @@ export default function WeekendTrips({ products }) {
 
   return (
     <>
-      <div className="tenThousand">
+      <div className={styles.tenThousand}>
         <h1>Weekend Under 10k</h1>
       </div>
 
-      <div className="WeekendTrips">
+      <div className={styles.WeekendTrips}>
         {products?.map((item) => (
-          <div className="weekendTripsCards" key={item._id}>
+          <div className={styles.weekendTripsCards} key={item._id}>
             <img
               src={item.thumbnailImage}
               alt={item.name}
-              className="featuredImage"
+              className={styles.featuredImage}
               loading="lazy"
               decoding="async"
             />
 
-            <div className="cardContent">
+            <div className={styles.cardContent}>
               <h2>{item.name}</h2>
 
-              <div className="priceSection">
-                <div className="priceInfo">
+              <div className={styles.priceSection}>
+                <div className={styles.priceInfo}>
                   <p>PLANS FROM</p>
                   <h3>₹{item.basePrice}</h3>
                 </div>

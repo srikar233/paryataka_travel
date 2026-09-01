@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { formatDateRange } from '../app/utils/formatDate';
+import { formatDateRange } from '@/lib/utils/formatDate';
+import styles from './BookingCard.module.css';
 
 export default function BookingCard({ trip }) {
   console.log(trip);
@@ -64,18 +65,18 @@ export default function BookingCard({ trip }) {
   const totalPrice = (basePrice + transportPrice) * guestCount;
 
   return (
-    <div className="bookingCard">
+    <div className={styles.bookingCard}>
       <h3>ACCOMMODATION</h3>
 
       <div>{trip?.name}</div>
 
       {/* Travel Dates */}
-      <div className="bookingField">
-        <div className="bookingLabel">TRAVEL DATES</div>
+      <div className={styles.bookingField}>
+        <div className={styles.bookingLabel}>TRAVEL DATES</div>
 
-        <label className="bookingSelectWrap">
+        <label className={styles.bookingSelectWrap}>
           <select
-            className="bookingSelect bookingDateSelect"
+            className={`${styles.bookingSelect} ${styles.bookingDateSelect}`}
             value={selectedDate}
             onChange={(event) => setSelectedDate(event.target.value)}
             aria-label="Select travel dates"
@@ -100,12 +101,12 @@ export default function BookingCard({ trip }) {
       </div>
 
       {/* Travel Mode */}
-      <div className="bookingField">
-        <div className="bookingLabel">TRAVEL MODE</div>
+      <div className={styles.bookingField}>
+        <div className={styles.bookingLabel}>TRAVEL MODE</div>
 
-        <label className="bookingSelectWrap">
+        <label className={styles.bookingSelectWrap}>
           <select
-            className="bookingSelect bookingDateSelect"
+            className={`${styles.bookingSelect} ${styles.bookingDateSelect}`}
             value={selectedTransport}
             onChange={(event) => setSelectedTransport(event.target.value)}
             aria-label="Select travel mode"
@@ -131,26 +132,26 @@ export default function BookingCard({ trip }) {
       </div>
 
       {/* Guests */}
-      <div className="bookingField">
-        <div className="bookingLabel">GUESTS</div>
+      <div className={styles.bookingField}>
+        <div className={styles.bookingLabel}>GUESTS</div>
 
-        <div className="guestSelector">
+        <div className={styles.guestSelector}>
           <button
             type="button"
-            className="guestButton"
+            className={styles.guestButton}
             aria-label="Decrease guest count"
             onClick={() => changeGuestCount(-1)}
           >
             −
           </button>
 
-          <span className="guestValue">
+          <span className={styles.guestValue}>
             {guestCount} Adult{guestCount > 1 ? 's' : ''}
           </span>
 
           <button
             type="button"
-            className="guestButton"
+            className={styles.guestButton}
             aria-label="Increase guest count"
             onClick={() => changeGuestCount(1)}
           >
@@ -160,21 +161,21 @@ export default function BookingCard({ trip }) {
       </div>
 
       {/* Total */}
-      <div className="bookingTotalRow">
+      <div className={styles.bookingTotalRow}>
         <span>Total</span>
         <strong>₹{totalPrice}</strong>
       </div>
 
-      <button type="button" className="checkoutButton">
+      <button type="button" className={styles.checkoutButton}>
         PROCEED TO CHECKOUT
       </button>
 
-      <div className="bookingTrust">
-        <span className="trustIcon">🔒</span>
+      <div className={styles.bookingTrust}>
+        <span className={styles.trustIcon}>🔒</span>
         <span>Secure Booking Guaranteed</span>
       </div>
 
-      <div className="bookingSupport">
+      <div className={styles.bookingSupport}>
         24/7 Priority Support
       </div>
     </div>

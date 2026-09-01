@@ -1,34 +1,33 @@
 "use client";
 
 import { useRouter, usePathname } from "next/navigation";
-import "../app/globals.css";
 import { FaAngleDown } from "react-icons/fa";
-
+import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
   return (
-    <div className="navbar">
+    <div className={styles.navbar}>
       <div>
         <h2>PARYATAKA</h2>
       </div>
 
-      <div className="tagss">
+      <div className={styles.tagss}>
         <button
           onClick={() => router.push("/")}
-          className={pathname === "/" ? "active" : ""}
+          className={pathname === "/" ? styles.active : ""}
         >
           Home
         </button>
         <button onClick={()=>router.push("/destinations")
         }
-        className={pathname === "/destinations" ? "active" : ""} style={{display: "flex", alignItems: 'center'}}>Destinations <FaAngleDown /></button>
+        className={pathname === "/destinations" ? styles.active : ""} style={{display: "flex", alignItems: 'center'}}>Destinations <FaAngleDown /></button>
 
         <button
           onClick={() => router.push("/blogs")}
-          className={pathname === "/Gallery" ? "active" : ""}
+          className={pathname === "/Gallery" ? styles.active : ""}
         >
           blogs
         </button>
@@ -36,14 +35,14 @@ export default function Navbar() {
 
         <button
           onClick={() => router.push("/contact")}
-          className={pathname === "/contact" ? "active" : ""}
+          className={pathname === "/contact" ? styles.active : ""}
         >
           Contact Us
         </button>
 
         <button
           onClick={() => router.push("/services")}
-          className={pathname === "/services" ? "active" : ""}
+          className={pathname === "/services" ? styles.active : ""}
         >
           About US
         </button>

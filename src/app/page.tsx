@@ -1,10 +1,11 @@
 import Image from "next/image";
-import paryataka from "../public/paryataka.jpg";
-import SearchBar from "../components/search";
-import WeekendTrips from "../components/weekendTrips";
-import FeaturedDestination from "../components/featuredDestinations";
-import Stories from "../components/stories";
-import Footer from "@/components/footer";
+import paryataka from "../../public/paryataka.jpg";
+import DestinationList from "@/components/features/DestinationList"
+import WeekendTrips from "@/components/features/WeekendTrips";
+import FeaturedDestination from "@/components/features/FeaturedDestinations";
+import Stories from "@/components/features/Stories";
+import Footer from "@/components/layout/Footer";
+import styles from "./page.module.css";
 export default async function Home() {
   const res = await fetch("https://paryataka-be.onrender.com/api/home", {
     next: { revalidate: 60 },
@@ -14,21 +15,18 @@ export default async function Home() {
 
   return (
     <>
-      <div className="hero">
+      <div className={styles.hero}>
         <Image
-          className="mainImage"
+          className={styles.mainImage}
           src={paryataka}
           alt="Paryataka"
         />
 
-        <div className="YourNextAdventureAwaits">
+        <div className={styles.YourNextAdventureAwaits}>
           Your Next Adventure <br />
           Awaits
         </div>
-
-        <SearchBar
-          searchData={data.data.weekendTripsUnder10k}
-        />
+       <DestinationList packages={data.data.weekendTripsUnder10k}/>
 
         <WeekendTrips
           products={data.data.weekendTripsUnder10k}

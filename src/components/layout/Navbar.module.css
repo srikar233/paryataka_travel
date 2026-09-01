@@ -1,0 +1,66 @@
+/* Navbar Component Styles */
+
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1250px;
+  height: 70px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 30px;
+
+  background: rgba(48, 48, 48, 0.8);
+  backdrop-filter: blur(12px);
+
+  border-radius: 15px;
+
+  z-index: 100;
+}
+
+.navbar h2 {
+  color: white;
+}
+
+.tagss {
+  display: flex;
+  gap: 20px;
+}
+
+.tagss button {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.tagss button:hover {
+  color: #16a34a;
+}
+
+.active {
+  color: #16a34a !important;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 992px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .tagss {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

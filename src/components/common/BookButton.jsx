@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import styles from './BookButton.module.css';
 
 export default function BookButton({ slug }) {
   const router = useRouter();
@@ -8,7 +9,7 @@ export default function BookButton({ slug }) {
   return (
     <button
       type="button"
-      className="bookButton"
+      className={styles.bookButton}
       onClick={() => router.push(`/tripDetails/${slug}`)}
     >
       Book

@@ -1,0 +1,187 @@
+/* BookingCard Component Styles */
+
+.bookingCard {
+  background: #f9fbff;
+  border: 1px solid #d9e1ee;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  padding: 18px 18px 20px;
+  height: 700px;
+}
+
+.bookingField {
+  margin-bottom: 18px;
+}
+
+.bookingLabel {
+  margin-bottom: 10px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.bookingSelect,
+.guestSelector {
+  width: 100%;
+  border: 1px solid #d8e1ee;
+  border-radius: 10px;
+  background: #f8fbff;
+  color: #0f172a;
+  min-height: 58px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.bookingSelectWrap {
+  display: block;
+  position: relative;
+}
+
+.bookingSelect {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.bookingDateSelect {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image:
+    linear-gradient(
+      45deg,
+      transparent 50%,
+      #64748b 50%
+    ),
+    linear-gradient(
+      135deg,
+      #64748b 50%,
+      transparent 50%
+    );
+
+  background-position:
+    calc(100% - 18px) calc(50% - 2px),
+    calc(100% - 12px) calc(50% - 2px);
+
+  background-size:
+    6px 6px,
+    6px 6px;
+
+  background-repeat: no-repeat;
+
+  padding-right: 38px;
+
+  color: #18233a;
+}
+
+.bookingDateSelect option {
+  padding: 12px 14px;
+  font-weight: 600;
+}
+
+.bookingSelect span:first-child {
+  color: #18233a;
+}
+
+.fieldChevron {
+  color: #64748b;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.guestSelector {
+  display: grid;
+  grid-template-columns: 62px 1fr 62px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.guestButton {
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: #1d4ed8;
+  font-size: 34px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.guestButton:last-child {
+  font-size: 30px;
+}
+
+.guestValue {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.bookingTotalRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding: 18px 0 14px;
+  border-top: 1px solid #e6edf7;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+.bookingTotalRow span {
+  font-weight: 600;
+}
+
+.bookingTotalRow strong {
+  font-size: 22px;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.checkoutButton {
+  width: 100%;
+  margin-top: 2px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    #0f4ec4,
+    #1d4ed8
+  );
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  padding: 16px 20px;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(29, 78, 216, 0.28);
+}
+
+.bookingTrust {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.trustIcon {
+  font-size: 16px;
+}
+
+.bookingSupport {
+  margin-top: 8px;
+  text-align: center;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 700;
+}

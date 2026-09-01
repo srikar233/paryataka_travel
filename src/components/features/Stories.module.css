@@ -1,0 +1,63 @@
+/* Stories Component Styles */
+
+.stories {
+  width: min(90%, 1250px);
+  margin: 72px auto 24px;
+}
+
+.stories h1 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: #1f2937;
+  font-weight: 800;
+}
+
+.stories h4 {
+  color: #6b7280;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.storyMainCards {
+  width: min(90%, 1250px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  padding-bottom: 80px;
+}
+
+.storyCards {
+  background: white;
+  height: 320px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+}
+
+.storyCards:hover {
+  transform: translateY(-10px);
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 992px) {
+  .storyMainCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ================= MOBILE 768px ================= */
+
+@media (max-width: 768px) {
+  .stories h1 {
+    font-size: 30px;
+  }
+
+  .storyMainCards {
+    grid-template-columns: 1fr;
+  }
+}
