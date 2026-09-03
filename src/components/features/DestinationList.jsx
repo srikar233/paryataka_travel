@@ -3,36 +3,19 @@
 import { useState } from "react";
 import { MapPin, Clock } from "lucide-react";
 import BookButton from "@/components/common/BookButton";
-import styles from './DestinationList.module.css';
+import styles from "../features/DestinationList.module.css";
 
-export default function DestinationList({ packages=[]}) {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [isSearched, setIsSearched] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState("All");
+export default function DestinationList({ packages = [] }) {
+  const [search, setSearch] = useState("");
 
-  // Get unique categories
-  const categories = ["All", ...new Set(packages.map(p => p.categoryId?.name).filter(Boolean))];
+  const filteredData = packages.filter((item) => {
+    const searchValue = search.toLowerCase().trim();
 
-  const handleSearch = () => {
-    setIsSearched(true);
-  };
-
-  const handleReset = () => {
-    setSearchTerm("");
-    setSelectedCategory("All");
-    setIsSearched(false);
-  };
-
-  const filteredItems = packages.filter((item) => {
-    // Only show items if search has been performed and there's a search term
-    if (!isSearched || !searchTerm.trim()) {
-      return false;
+    if (!searchValue) {
+      return true;
     }
 
-    const search = searchTerm.toLowerCase().trim();
-
-    const name =
-      item.name?.toLowerCase() || "";
+    const name = item.name?.toLowerCase() || "";
 
     const city =
       item.locations?.[0]?.city?.toLowerCase() || "";
@@ -41,195 +24,107 @@ export default function DestinationList({ packages=[]}) {
       item.locations?.[0]?.state?.toLowerCase() || "";
 
     const category =
-      item.categoryId?.name || "";
-
-    // Check category filter
-    if (selectedCategory !== "All" && category !== selectedCategory) {
-      return false;
-    }
+      item.categoryId?.name?.toLowerCase() || "";
 
     return (
-      name.includes(search) ||
-      city.includes(search) ||
-      state.includes(search) ||
-      category.toLowerCase().includes(search)
+      name.includes(searchValue) ||
+      city.includes(searchValue) ||
+      state.includes(searchValue) ||
+      category.includes(searchValue)
     );
   });
 
   return (
-    <div>
-      {/* ================= SEARCH SECTION ================= */}
-
-      <div className={styles.firstpart}>
-        <div className={styles.searchbardestination}>
-          <div className={styles.searchContainer}>
-            {/* <label>Search</label> */}
-            <input
-              type="text"
-              className={styles.searchinputdestination}
-              placeholder="Search destinations, packages..."
-              value={searchTerm}
-              onChange={(e) => {
-                setSearchTerm(e.target.value);
-              }}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  handleSearch();
-                }
-              }}
-            />
-          </div>
-
-          <div className={styles.categoryContainer}>
-            {/* <label>Category</label> */}
-            {/* <select
-              className={styles.categorySelect}
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-            >
-              {categories.map((cat) => (
-                <option key={cat} value={cat}>
-                  {cat}
-                </option>
-              ))}
-            </select> */}
-          </div>
-
-          <div className={styles.buttonContainer}>
-            <button
-              type="button"
-              className={styles.searchButton}
-              onClick={handleSearch}
-            >
-              Search Trip
-            </button>
-
-            {/* <button
-              type="button"
-              className={styles.resetButton}
-              onClick={handleReset}
-            >
-              Reset
-            </button> */}
-          </div>
-
+    <>
+      {/* Search Bar */}
+      <div className={styles.SearchbarAndButton}>
+        <div className={styles.searchInput}>
+          <input
+            type="text"
+            placeholder="Search your Trip"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </div>
+
+        <button type="button">
+          Search Trips
+        </button>
       </div>
 
-      {/* ================= DESTINATION CARDS ================= */}
+      {/* Search Results */}
+      {search.trim() && (
+        <div className={styles.searchResults}>
+          {filteredData.length > 0 ? (
+            <div className={styles.cardsContainer}>
+              {filteredData.map((item) => (
+                <div
+                  className={styles.destinationCard}
+                  key={item._id}
+                >
+                  {/* Image */}
+                  <a href={`/tripDetails/${item.slug}`}>
+                    <img
+                      src={item.thumbnailImage}
+                      alt={item.name || "Package"}
+                      className={styles.destinationImage}
+                    />
+                  </a>
 
-      {/* <div className={styles.secondpart}>
+                  {/* Card Content */}
+                  <div className={styles.cardContent}>
+                    <h2>{item.name}</h2>
 
-        {filteredItems.length > 0 ? (
+                    {/* Location */}
+                    <div className={styles.location}>
+                      <MapPin size={18} />
 
-          filteredItems.map((item) => (
+                      <span>
+                        {item.locations?.[0]?.city},{" "}
+                        {item.locations?.[0]?.state}
+                      </span>
+                    </div>
 
-            <div
-              className={styles.destinationCard}
-              key={item._id}
-            >
+                    {/* Duration */}
+                    <div className={styles.duration}>
+                      <Clock size={18} />
 
-              
+                      <span>
+                        {item.duration?.days} Days{" "}
+                        {item.duration?.nights} Nights
+                      </span>
+                    </div>
 
-              <a
-                href={`/tripDetails/${item.slug}`}
-              >
-                <img
-                  src={item.thumbnailImage}
-                  alt={
-                    item.name || "Package"
-                  }
-                  className={styles.imagesOnDestinations}
-                />
+                    {/* Price + Book */}
+                    <div className={styles.cardBottom}>
+                      <div>
+                        <p className={styles.startingFrom}>
+                          Starting from
+                        </p>
 
-                <h2>
-                  {item.name}
-                </h2>
+                        <p className={styles.price}>
+                          ₹
+                          {item.basePrice?.toLocaleString(
+                            "en-IN"
+                          )}
+                        </p>
+                      </div>
 
-                
-
-                <div className={styles.cityState}>
-
-                  <div>
-                    <MapPin size={18} />
+                      <BookButton
+                        slug={item.slug || item._id}
+                      />
+                    </div>
                   </div>
-
-                  <p>
-                    {item.locations?.[0]?.city}
-                  </p>
-
-                  <span>,</span>
-
-                  <p>
-                    {item.locations?.[0]?.state}
-                  </p>
-
                 </div>
-
-               
-
-                <div className={styles.duration}>
-
-                  <Clock size={18} />
-
-                  <p>
-                    {item.duration?.days} Days{" "}
-                    {item.duration?.nights} Nights
-                  </p>
-
-                </div>
-
-               
-
-                <div className={styles.price}>
-
-                  <p>
-                    Starting from
-                  </p>
-
-                  <span>
-                    ₹
-                    {item.basePrice?.toLocaleString(
-                      "en-IN"
-                    )}
-                  </span>
-
-                </div>
-
-              </a>
-
-              
-              <div className={styles.priceAndBook}>
-
-                <BookButton
-                  slug={
-                    item.slug || item._id
-                  }
-                />
-
-              </div>
-
+              ))}
             </div>
-
-          ))
-
-        ) : (
-
-          <div className={styles.noResults}>
-
-            <h2>
-              No packages found
-            </h2>
-
-            <p>
-              Try another destination or package name.
-            </p>
-
-          </div>
-
-        )}
-
-      </div> */}
-    </div>
+          ) : (
+            <div className={styles.noResult}>
+              No package found
+            </div>
+          )}
+        </div>
+      )}
+    </>
   );
 }

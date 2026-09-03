@@ -7,7 +7,7 @@
 }
 
 .heroSection { position: relative; width: 100%; }
- .mainImage { width: 100%; height: min(100vh, 950px); object-fit: cover; filter: brightness(60%); transition: transform 0.35s ease, filter 0.35s ease; display: block; }
+ .mainImage { width: 100%; height: min(80vh, 950px); object-fit: cover; filter: brightness(60%); transition: transform 0.35s ease, filter 0.35s ease; display: block; }
 
 .hero:hover .mainImage {
   transform: scale(1.02);
