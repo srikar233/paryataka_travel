@@ -1,7 +1,7 @@
 import Footer from "@/components/layout/Footer";
 import { MapPin, Clock } from "lucide-react";
 import BookButton from "@/components/common/BookButton";
-
+import "../destinations/page.css";
 
 export default async function Destinations() {
 
@@ -24,7 +24,7 @@ export default async function Destinations() {
   return (
     <div>
       {/* Search Section */}
-      <div className="firstpart">
+      
         <div className="searchbardestination">
           <input
             type="text"
@@ -34,15 +34,15 @@ export default async function Destinations() {
 
           <div>
             <button type="button">
-              Search Package
+              Search Trip
             </button>
 
-            <button type="button">
+            {/* <button type="button">
               Reset
-            </button>
+            </button> */}
           </div>
         </div>
-      </div>
+     
 
       {/* Destination Cards */}
       <div className="secondpart">

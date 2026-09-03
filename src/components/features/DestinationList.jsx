@@ -63,7 +63,7 @@ export default function DestinationList({ packages=[]}) {
       <div className={styles.firstpart}>
         <div className={styles.searchbardestination}>
           <div className={styles.searchContainer}>
-            <label>Search</label>
+            {/* <label>Search</label> */}
             <input
               type="text"
               className={styles.searchinputdestination}
@@ -81,8 +81,8 @@ export default function DestinationList({ packages=[]}) {
           </div>
 
           <div className={styles.categoryContainer}>
-            <label>Category</label>
-            <select
+            {/* <label>Category</label> */}
+            {/* <select
               className={styles.categorySelect}
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
@@ -92,7 +92,7 @@ export default function DestinationList({ packages=[]}) {
                   {cat}
                 </option>
               ))}
-            </select>
+            </select> */}
           </div>
 
           <div className={styles.buttonContainer}>
@@ -101,16 +101,16 @@ export default function DestinationList({ packages=[]}) {
               className={styles.searchButton}
               onClick={handleSearch}
             >
-              Search Packages
+              Search Trip
             </button>
 
-            <button
+            {/* <button
               type="button"
               className={styles.resetButton}
               onClick={handleReset}
             >
               Reset
-            </button>
+            </button> */}
           </div>
 
         </div>
@@ -118,7 +118,7 @@ export default function DestinationList({ packages=[]}) {
 
       {/* ================= DESTINATION CARDS ================= */}
 
-      <div className={styles.secondpart}>
+      {/* <div className={styles.secondpart}>
 
         {filteredItems.length > 0 ? (
 
@@ -129,7 +129,7 @@ export default function DestinationList({ packages=[]}) {
               key={item._id}
             >
 
-              {/* Destination Details */}
+              
 
               <a
                 href={`/tripDetails/${item.slug}`}
@@ -146,7 +146,7 @@ export default function DestinationList({ packages=[]}) {
                   {item.name}
                 </h2>
 
-                {/* Location */}
+                
 
                 <div className={styles.cityState}>
 
@@ -166,7 +166,7 @@ export default function DestinationList({ packages=[]}) {
 
                 </div>
 
-                {/* Duration */}
+               
 
                 <div className={styles.duration}>
 
@@ -179,7 +179,7 @@ export default function DestinationList({ packages=[]}) {
 
                 </div>
 
-                {/* Price */}
+               
 
                 <div className={styles.price}>
 
@@ -198,8 +198,7 @@ export default function DestinationList({ packages=[]}) {
 
               </a>
 
-              {/* Book Button */}
-
+              
               <div className={styles.priceAndBook}>
 
                 <BookButton
@@ -230,7 +229,7 @@ export default function DestinationList({ packages=[]}) {
 
         )}
 
-      </div>
+      </div> */}
     </div>
   );
 }
