@@ -1,12 +1,30 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { MapPin, Clock } from "lucide-react";
 import BookButton from "@/components/common/BookButton";
 import styles from "../features/DestinationList.module.css";
 
-export default function DestinationList({ packages = [] }) {
-  const [search, setSearch] = useState("");
+export default function DestinationList({
+  packages = [],
+  initialSearch = "",
+}) {
+  const [search, setSearch] = useState(initialSearch);
+
+  const router = useRouter();
+
+  const handleSearch = () => {
+    const searchValue = search.trim();
+
+    if (!searchValue) {
+      return;
+    }
+
+    router.push(
+      `/destinations?search=${encodeURIComponent(searchValue)}`
+    );
+  };
 
   const filteredData = packages.filter((item) => {
     const searchValue = search.toLowerCase().trim();
@@ -44,16 +62,21 @@ export default function DestinationList({ packages = [] }) {
             placeholder="Search your Trip"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+              }
+            }}
           />
         </div>
 
-        <button type="button">
+        <button type="button" onClick={handleSearch}>
           Search Trips
         </button>
       </div>
 
       {/* Search Results */}
-      {search.trim() && (
+      {/* {search.trim() && (
         <div className={styles.searchResults}>
           {filteredData.length > 0 ? (
             <div className={styles.cardsContainer}>
@@ -62,7 +85,6 @@ export default function DestinationList({ packages = [] }) {
                   className={styles.destinationCard}
                   key={item._id}
                 >
-                  {/* Image */}
                   <a href={`/tripDetails/${item.slug}`}>
                     <img
                       src={item.thumbnailImage}
@@ -71,11 +93,9 @@ export default function DestinationList({ packages = [] }) {
                     />
                   </a>
 
-                  {/* Card Content */}
                   <div className={styles.cardContent}>
                     <h2>{item.name}</h2>
 
-                    {/* Location */}
                     <div className={styles.location}>
                       <MapPin size={18} />
 
@@ -85,7 +105,6 @@ export default function DestinationList({ packages = [] }) {
                       </span>
                     </div>
 
-                    {/* Duration */}
                     <div className={styles.duration}>
                       <Clock size={18} />
 
@@ -95,7 +114,6 @@ export default function DestinationList({ packages = [] }) {
                       </span>
                     </div>
 
-                    {/* Price + Book */}
                     <div className={styles.cardBottom}>
                       <div>
                         <p className={styles.startingFrom}>
@@ -124,7 +142,7 @@ export default function DestinationList({ packages = [] }) {
             </div>
           )}
         </div>
-      )}
+      )} */}
     </>
   );
 }
