@@ -7,10 +7,9 @@ import BookButton from "@/components/common/BookButton";
 import styles from "../features/DestinationList.module.css";
 
 export default function DestinationList({
-  packages = [],
-  initialSearch = "",
+  weekends,featuredDestinations
 }) {
-  const [search, setSearch] = useState(initialSearch);
+  const [search, setSearch] = useState("");
 
   const router = useRouter();
 
@@ -26,7 +25,8 @@ export default function DestinationList({
     );
   };
 
-  const filteredData = packages.filter((item) => {
+  weekends,featuredDestinations
+  const filteredData = (weekends && featuredDestinations).filter((item) => {
     const searchValue = search.toLowerCase().trim();
 
     if (!searchValue) {

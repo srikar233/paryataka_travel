@@ -26,7 +26,7 @@ export default async function Home() {
           Your Next Adventure <br />
           Awaits
         </div>
-       <DestinationList packages={data.data.weekendTripsUnder10k}/>
+       <DestinationList weekends={data.data.weekendTripsUnder10k} featuredDestinations={data.data.featuredDestinations}/>
 
         <WeekendTrips
           products={data.data.weekendTripsUnder10k}
