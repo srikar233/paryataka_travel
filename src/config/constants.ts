@@ -11,6 +11,7 @@ export const API_ENDPOINTS = {
   PACKAGES: `${API_BASE_URL}/packages/public`,
   FEATURED_DESTINATIONS: `${API_BASE_URL}/featuredDestinations`,
   WEEKEND_TRIPS: `${API_BASE_URL}/weekendTrips`,
+  BLOGS:`${API_BASE_URL}/blog`,
 } as const;
 
 // Cache Revalidation Times (in seconds)
