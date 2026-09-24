@@ -1,12 +1,391 @@
-/* Footer Component Styles */
+/* =========================================
+   FOOTER
+========================================= */
 
 .footer {
-  padding: 30px;
   width: 100%;
-  height: 200px;
-  background-color: #0357A2;
+  margin-top: 55px;
+
+  background: linear-gradient(
+    110deg,
+    #075a9c 0%,
+    #0872c9 100%
+  );
+
+  color: #ffffff;
+}
+
+
+/* =========================================
+   MAIN FOOTER
+========================================= */
+
+.footerMain {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding: 36px 60px 30px;
+
+  box-sizing: border-box;
+
+  display: grid;
+
+  grid-template-columns: 1.2fr 1fr 1fr;
+
+  align-items: start;
+
+  column-gap: 100px;
+}
+
+
+/* =========================================
+   BRAND SECTION
+========================================= */
+
+.brandSection {
   display: flex;
-  justify-content: space-around;
-  font-family: "Courier New", Courier, monospace;
-  color: white;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logoSection {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.logoBox {
+  width: 34px;
+  height: 34px;
+
+  background: #ffffff;
+
+  border-radius: 5px;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.logoBox img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+.logoSection h2 {
+  margin: 0;
+
+  font-size: 20px;
+  line-height: 1;
+
+  font-weight: 700;
+
+  color: #ffffff;
+}
+
+
+/* =========================================
+   BRAND DESCRIPTION
+========================================= */
+
+.brandSection > p {
+  margin: 12px 0 16px;
+
+  font-size: 13px;
+  line-height: 1.5;
+
+  color: rgba(255, 255, 255, 0.95);
+}
+
+
+/* =========================================
+   SOCIAL LINKS
+========================================= */
+
+.socialLinks {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.socialLinks a {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  border-radius: 6px;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 16px;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.socialLinks a:hover {
+  background: rgba(255, 255, 255, 0.22);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   EXPLORE / CONTACT HEADINGS
+========================================= */
+
+.exploreSection h3,
+.contactSection h3 {
+  margin: 2px 0 12px;
+
+  font-size: 16px;
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  color: #ffffff;
+}
+
+
+/* =========================================
+   EXPLORE
+========================================= */
+
+.exploreSection {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 7px;
+}
+
+.exploreSection a {
+  color: rgba(255, 255, 255, 0.95);
+
+  text-decoration: none;
+
+  font-size: 13px;
+  line-height: 1.4;
+
+  transition: opacity 0.25s ease;
+}
+
+.exploreSection a:hover {
+  opacity: 0.7;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contactSection {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 8px;
+}
+
+.contactSection p {
+  margin: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  font-size: 13px;
+  line-height: 1.4;
+
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.contactSection p span {
+  width: 18px;
+
+  display: inline-flex;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   BOTTOM FOOTER
+========================================= */
+
+.footerBottom {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding: 13px 60px;
+
+  box-sizing: border-box;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.footerBottom p {
+  margin: 0;
+
+  font-size: 12px;
+
+  color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* =========================================
+   PRIVACY / TERMS
+========================================= */
+
+.legalLinks {
+  display: flex;
+
+  align-items: center;
+
+  gap: 22px;
+}
+
+.legalLinks a {
+  color: rgba(255, 255, 255, 0.9);
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  transition: opacity 0.25s ease;
+}
+
+.legalLinks a:hover {
+  opacity: 0.7;
+}
+
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
+
+  .footerMain {
+    padding-left: 45px;
+    padding-right: 45px;
+
+    column-gap: 60px;
+  }
+
+  .footerBottom {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .footerMain {
+    padding: 32px 35px;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px 60px;
+  }
+
+  .brandSection {
+    grid-column: 1 / -1;
+  }
+
+  .footerBottom {
+    padding: 13px 35px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .footer {
+    margin-top: 40px;
+  }
+
+  .footerMain {
+    padding: 30px 22px;
+
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+  }
+
+  .brandSection {
+    grid-column: auto;
+  }
+
+  .logoBox {
+    width: 32px;
+    height: 32px;
+  }
+
+  .logoSection h2 {
+    font-size: 19px;
+  }
+
+  .footerBottom {
+    padding: 15px 22px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 10px;
+  }
 }
