@@ -57,8 +57,8 @@ export default function Navbar() {
         </button>
 
         <button
-          onClick={() => router.push("/services")}
-          className={pathname === "/services" ? styles.active : ""}
+          onClick={() => router.push("/about")}
+          className={pathname === "/about" ? styles.active : ""}
         >
           About Us
         </button>

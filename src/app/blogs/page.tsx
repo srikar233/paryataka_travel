@@ -10,160 +10,226 @@ export default async function BlogsPage() {
 
   console.log(blogs);
 
+  // Featured blog
   const featuredBlog = blogs.data?.[0];
+
+  // Remaining blogs
   const remainingBlogs = blogs.data?.slice(1);
+
+  // Get unique categories from API
+  const categories = [
+    ...new Set(
+      blogs.data
+        ?.map((item: any) => item.category)
+        .filter(Boolean)
+    ),
+  ];
+
+  //filtered blogs based on category
+  const filteredBlogs=categories ? blogs.data.filter((item: any)=>item.category===categories) : blogs;
 
   return (
     <>
-    <div>
-      <div className='picture'>srikar</div>
-    </div>
-    <div>
-              <div className="search-wrapper">
-                <div className="search-container">
-                  <input
-                      type="text"
-                      placeholder="Search stories..."
-                      className="search-input"
-                  />
-                  <input type="text" placeholder='All Categories'/>
-                  <input type="text" />
-                </div>
-             </div>
-    </div>
-    <div>
-    <div className="blogs-page">
+      {/* ================= TOP SECTION ================= */}
+      <div>
+        <div className="picture">
+          srikar
+        </div>
+      </div>
 
-      {/* ================= FEATURED BLOG ================= */}
-      {featuredBlog && (
-        <div className="featured-blog">
+      {/* ================= SEARCH SECTION ================= */}
+      <div>
+        <div className="search-wrapper">
 
-          {/* Featured Image */}
-          <div className="featured-image-container">
-            <img
-              src={featuredBlog.heroImage}
-              alt={featuredBlog.title}
-              className="featured-image"
+          <div className="search-container">
+
+            {/* Search Input */}
+            <input
+              type="text"
+              placeholder="Search stories..."
+              className="search-input"
             />
-          </div>
 
-          {/* Featured Content */}
-          <div className="featured-content">
+            {/* Category Dropdown */}
+            <select className="category-select">
+              <option value="">
+                All Categories
+              </option>
 
-            <span className="featured-label">
-              FEATURED STORY
-            </span>
-
-            <h1 className="featured-title">
-              {featuredBlog.title}
-            </h1>
-
-            <p className="featured-description">
-              Read our detailed travel guide and stories about{' '}
-              {featuredBlog.title}
-            </p>
-
-            <div className="featured-bottom">
-
-              <div className="featured-author">
-
-                <img
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80"
-                  alt={featuredBlog.authorInfo?.name || 'Author'}
-                  className="featured-author-image"
-                />
-
-                <div>
-                  <p className="featured-author-name">
-                    {featuredBlog.authorInfo?.name || 'Teja Chalasani'}
-                  </p>
-
-                  <span className="featured-date">
-                    Jun 26, 2026 · 8 min read
-                  </span>
-                </div>
-
-              </div>
-
-              <button className="featured-read-button">
-                Read <span>→</span>
-              </button>
-
-            </div>
+              {categories.map((category: any) => (
+                <option
+                  key={category}
+                  value={category}
+                >
+                  {category}
+                </option>
+              ))}
+            </select>
 
           </div>
 
         </div>
-      )}
+      </div>
 
-      {/* ================= BLOG GRID ================= */}
-      <div className="blog-grid">
+      {/* ================= BLOG SECTION ================= */}
+      <div>
 
-        {remainingBlogs?.map((item: any) => (
-          <div className="blog-card" key={item._id}>
+        <div className="blogs-page">
 
-            {/* Image */}
-            <div className="blog-image-container">
+          {/* ================= FEATURED BLOG ================= */}
+          {featuredBlog && (
+            <div className="featured-blog">
 
-              <img
-                src={item.heroImage}
-                alt={item.title}
-                className="blog-image"
-              />
+              {/* Featured Image */}
+              <div className="featured-image-container">
+                <img
+                  src={featuredBlog.heroImage}
+                  alt={featuredBlog.title}
+                  className="featured-image"
+                />
+              </div>
 
-              <span className="blog-category">
-                {item.category || 'TRAVEL'}
-              </span>
+              {/* Featured Content */}
+              <div className="featured-content">
+
+                <span className="featured-label">
+                  FEATURED STORY
+                </span>
+
+                <h1 className="featured-title">
+                  {featuredBlog.title}
+                </h1>
+
+                <p className="featured-description">
+                  Read our detailed travel guide and stories about{' '}
+                  {featuredBlog.title}
+                </p>
+
+                {/* Bottom Section */}
+                <div className="featured-bottom">
+
+                  {/* Author */}
+                  <div className="featured-author">
+
+                    <img
+                      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80"
+                      alt={
+                        featuredBlog.authorInfo?.name ||
+                        'Author'
+                      }
+                      className="featured-author-image"
+                    />
+
+                    <div>
+
+                      <p className="featured-author-name">
+                        {featuredBlog.authorInfo?.name ||
+                          'Teja Chalasani'}
+                      </p>
+
+                      <span className="featured-date">
+                        Jun 26, 2026 · 8 min read
+                      </span>
+
+                    </div>
+
+                  </div>
+
+                  {/* Read Button */}
+                  <button className="featured-read-button">
+                    Read <span>→</span>
+                  </button>
+
+                </div>
+
+              </div>
 
             </div>
+          )}
 
-            {/* Content */}
-            <div className="blog-content">
+          {/* ================= BLOG GRID ================= */}
+          <div className="blog-grid">
 
-              <h2 className="blog-title">
-                {item.title}
-              </h2>
+            {remainingBlogs?.map((item: any) => (
 
-              <p className="blog-description">
-                Read our detailed travel guide and stories about{' '}
-                {item.title}.
-              </p>
+              <div
+                className="blog-card"
+                key={item._id}
+              >
 
-              {/* Author / Read time */}
-              <div className="blog-bottom">
+                {/* Image */}
+                <div className="blog-image-container">
 
-                <div className="blog-author">
+                  <img
+                    src={item.heroImage}
+                    alt={item.title}
+                    className="blog-image"
+                  />
 
-                  <span className="blog-by">
-                    By
-                  </span>
-
-                  <span className="blog-author-name">
-                    {item.authorInfo?.name || 'Teja Chalasani'}
+                  {/* Category */}
+                  <span className="blog-category">
+                    {item.category || 'TRAVEL'}
                   </span>
 
                 </div>
 
-                <span className="blog-read-time">
-                  8 min read
-                </span>
+                {/* Content */}
+                <div className="blog-content">
+
+                  {/* Title */}
+                  <h2 className="blog-title">
+                    {item.title}
+                  </h2>
+
+                  {/* Description */}
+                  <p className="blog-description">
+                    Read our detailed travel guide and stories about{' '}
+                    {item.title}.
+                  </p>
+
+                  {/* Author / Read Time */}
+                  <div className="blog-bottom">
+
+                    <div className="blog-author">
+
+                      <span className="blog-by">
+                        By
+                      </span>
+
+                      <span className="blog-author-name">
+                        {item.authorInfo?.name ||
+                          'Teja Chalasani'}
+                      </span>
+
+                    </div>
+
+                    <span className="blog-read-time">
+                      8 min read
+                    </span>
+
+                  </div>
+
+                  {/* Read Article */}
+                  <button className="read-article-button">
+                    Read Article
+                  </button>
+
+                </div>
 
               </div>
 
-              {/* Read Article */}
-              <button className="read-article-button">
-                Read Article
-              </button>
-
-            </div>
+            ))}
 
           </div>
-        ))}
+
+        </div>
+
+        {/* Footer */}
+        <div>
+          <Footer />
+        </div>
 
       </div>
-    </div>
-     <div><Footer /></div>
-     </div>
-     </>
+    </>
   );
 }
